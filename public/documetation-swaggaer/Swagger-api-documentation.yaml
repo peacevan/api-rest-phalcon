@@ -1,0 +1,860 @@
+openapi: 3.0.0
+info:
+  title: API Laravel Swagger Documentation
+  contact:
+    email: peacevan@hotmail.com
+  version: 1.5.0
+paths:
+  /api/cliente:
+    get:
+      tags:
+        - Cliente
+      summary: Listar Clientes
+      description: Retorna todos os Clientes
+      operationId: 3523670cf42771e8e78e1a3d40f3ff61
+      responses:
+        '200':
+          description: Clientes
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    example: '5'
+                  name:
+                    type: string
+                    example: Cliente 1 Teste
+                  cnpj:
+                    type: string
+                    example: '000220007878'
+                  data_fundacao:
+                    type: string
+                    example: 17/05/2010
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Campo Incorreto
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: esse nome já está sendo usado
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    post:
+      tags:
+        - Cliente
+      summary: Criar um novo Cliente
+      description: esse endpoint cria um novo Cliente
+      operationId: 88727081caadff2d758122f42b2b1eec
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - id_grupo
+              properties:
+                nome:
+                  type: string
+                  example: Ivan Amado
+                cnpj:
+                  type: string
+                  example: '1212122122122'
+                data_fundacao:
+                  type: string
+                  format: date
+                  example: 17/05/2010
+                id_grupo:
+                  type: integer
+                  example: 3
+              type: object
+      responses:
+        '200':
+          description: Grupo Cliado
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: group created successfully!
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+  /api/cliente/{id}:
+    put:
+      tags:
+        - Cliente
+      summary: Mudar dados do cliente
+      description: esse endpoint muda os dados do cliente
+      operationId: 7f8589f93cf4cbb63b728d2e8dd3d973
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - id_grupo
+              properties:
+                nome:
+                  type: string
+                  example: Ivan Amado
+                cnpj:
+                  type: string
+                  example: '1212122122122'
+                data_fundacao:
+                  type: string
+                  format: date
+                  example: 17/05/2010
+                id_grupo:
+                  type: integer
+                  example: 3
+              type: object
+      responses:
+        '200':
+          description: Cliente atualizado com sucesso!
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Cliente atualizado com sucesso!
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Esse Nome já foi cadastrado
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    delete:
+      tags:
+        - Cliente
+      summary: Remove um Cliente
+      description: Esse Endpoint remove um Gerente.
+      operationId: d01497479a258592c5d5fa8778b537eb
+      responses:
+        '204':
+          description: Remove um cliente
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Cliente removido com sucesso !
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: nome do Cliente é obrigatório.
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+  /api/gerente:
+    get:
+      tags:
+        - Gerente
+      summary: listar Gerentes
+      description: Retorna todos os Gerentes
+      operationId: 3a14653595a39c991184600a633da362
+      responses:
+        '200':
+          description: Gerentes
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    example: '5'
+                  name:
+                    type: string
+                    example: Gerente 1 Teste
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: esse nome já está sendo usado
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    post:
+      tags:
+        - Gerente
+      summary: Criar um novo Gerente
+      description: esse endpoint cria um novo Gerente
+      operationId: b872831389180b6fea1e9fdc5012c416
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - nivel
+              properties:
+                nome:
+                  type: string
+                  example: Ivan Amado
+                email:
+                  type: string
+                  example: peacevan2hotmail.com
+                nivel:
+                  type: integer
+                  example: '2'
+              type: object
+      responses:
+        '200':
+          description: Grupo Cliado
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: group created successfully!
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+  /api/gerente/{id}:
+    put:
+      tags:
+        - Gerente
+      summary: Muda dados do gerente
+      description: esse endpoint muda os dados do Gerente
+      operationId: 90a6c2b3a4daad6a74ae97805ff9a418
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - nivel
+              properties:
+                nome:
+                  type: string
+                  example: nome do gerente
+                email:
+                  type: string
+                  example: emailgerente@hotmail.com
+                nivel:
+                  type: integer
+                  example: '2'
+              type: object
+      responses:
+        '200':
+          description: Nome do gerente atualizado com sucesso!
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: User e-mail updated successfully!
+                  user:
+                    type: string
+                    example: ...
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Esse Nome já foi cadastrado
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    delete:
+      tags:
+        - Gerente
+      summary: Remove um  Gerente
+      description: Esse Endpoint remove um Gerente.
+      operationId: 0317a44cce5d132d6f323fd8414eca62
+      responses:
+        '200':
+          description: Remove um Gerente
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: gerente removido com sucesso !
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: nome do gerente é obrigatório.
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+  /api/grupo:
+    get:
+      tags:
+        - Grupo
+      summary: listar grupos
+      description: This endpoint returns all grupos data
+      operationId: b09a45d1c12745bfb3ca9855f3e92597
+      responses:
+        '200':
+          description: grupos
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    example: '5'
+                  name:
+                    type: string
+                    example: Grupo1
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    post:
+      tags:
+        - Grupo
+      summary: Criar um novo grupo
+      description: esse endpoint cria um novo grupor
+      operationId: f0ab1946db15e372ab2c0c26f77c523f
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                name:
+                  type: string
+                  example: Ivan Amado
+              type: object
+      responses:
+        '200':
+          description: Grupo Cliado
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: group created successfully!
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+  /api/grupo/{id}:
+    delete:
+      tags:
+        - Grupo
+      summary: Remove Grupo
+      description: Esse Endpoint remove um grupo.
+      operationId: 28ed6b43b348177573bb1e22d5718206
+      responses:
+        '200':
+          description: Remove um grupo
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Grupo removido com sucesso !
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: nome do gtru po é obrigatório.
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+    patch:
+      tags:
+        - Grupo
+      summary: Muda o nome do Grupo
+      description: esse endpoint muda o nome do grupo
+      operationId: c66b532d59769dc4bd4da9986327309b
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - nome
+              properties:
+                nome:
+                  type: string
+                  example: Grupo III
+              type: object
+      responses:
+        '200':
+          description: User e-mail updated successfully!
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: User e-mail updated successfully!
+                  user:
+                    type: string
+                    example: ...
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+  /api/sanctum/token:
+    post:
+      tags:
+        - Sanctum Authentication
+      summary: Get a autentication user token
+      description: This endpoints return a new token user authentication for use on protected endpoints
+      operationId: 4aed2e67cb048a8c6ce647a3976e9b8c
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - email
+                - password
+                - device_name
+              properties:
+                email:
+                  type: string
+                  example: peacevan@hotmail.com
+                password:
+                  type: string
+                  example: '#sdasd$ssdaAA@'
+                device_name:
+                  type: string
+                  example: IOS
+              type: object
+      responses:
+        '200':
+          description: Token generated
+          content:
+            application/json:
+              schema:
+                properties:
+                  plainTextToken:
+                    type: string
+                    example: 2|MZEBxLy1zulPtND6brlf8GOPy57Q4DwYunlibXGj
+                type: object
+        '422':
+          description: Incorrect credentials
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The provided credentials are incorrect.
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+  /api/user:
+    post:
+      tags:
+        - User
+      summary: Create a new user
+      description: This endpoint creates a new user
+      operationId: 287bc3ec931e652c54bb2ddb777040bc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - email
+                - password
+                - name
+                - password_confirmation
+              properties:
+                name:
+                  type: string
+                  example: Ivan Amado
+                email:
+                  type: string
+                  example: peacevan@hotmail.com
+                password:
+                  type: string
+                  example: '#sdasd$ssdaAA@'
+                password_confirmation:
+                  type: string
+                  example: '#sdasd$ssdaAA@'
+              type: object
+      responses:
+        '200':
+          description: User created
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: User created successfully!
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+  /api/user/me:
+    get:
+      tags:
+        - User
+      summary: Get data about authenticated user
+      description: This endpoint returns all authenticated user data
+      operationId: 23a655d8871ff4920d42e22aad9c27c0
+      responses:
+        '200':
+          description: authenticated user data
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    example: '5'
+                  name:
+                    type: string
+                    example: Ivan Amado
+                  email:
+                    type: string
+                    example: peacevan@hotmail.com
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+  /api/user/change-email:
+    patch:
+      tags:
+        - User
+      summary: Change user email
+      description: This endpoints change an user email
+      operationId: 86bd15cac7a6596021166c8e656366df
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  example: gabriel_robert@example.org
+              type: object
+      responses:
+        '200':
+          description: User e-mail updated successfully!
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: User e-mail updated successfully!
+                  user:
+                    type: string
+                    example: ...
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The name has already been taken. (and 2 more errors)
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+  /api/user/logout:
+    delete:
+      tags:
+        - User
+      summary: Revoke all user tokens
+      description: This endpoint provides a logout for user, revoking all actived user tokens.
+      operationId: 2195f702f47b7fd672e8d116ff31853e
+      responses:
+        '200':
+          description: All user tokens revoked
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: All user tokens were revoked !
+                type: object
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+                type: object
+        '422':
+          description: Incorrect fields
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: The email field is required.
+                  errors:
+                    type: string
+                    example: ...
+                type: object
+      security:
+        - bearerToken: []
+components:
+  securitySchemes:
+    bearerToken:
+      type: http
+      description: Acess token obtido na autenticação
+      name: Authorization
+      in: header
+      bearerFormat: JWT
+      scheme: bearer

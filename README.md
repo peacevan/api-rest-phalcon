@@ -117,6 +117,7 @@ https://phalcon.test/product/update/id
   "title":"produto teste"  
  }
 ```
+![[swagger-documetation.png]]
 
 
 ## 📫 Contribuindo para <Api_Rest_Phalcon>
