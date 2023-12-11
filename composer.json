@@ -1,0 +1,21 @@
+{
+    "name": "peace/api-phalcon",
+    "description": "api em phalcon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ivan amado Cardoso"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+    ,
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+
+}
+
+
