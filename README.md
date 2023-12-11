@@ -119,8 +119,9 @@ https://phalcon.test/product/update/id
 ```
 
 
-<img src="swagger-documetation.png" alt="exemplo imagem">
+<img src="insominia-magem.png" alt="exemplo imagem">
 
+<img src="swagger-imagem.png" alt="exemplo imagem">
 
 
 ## 📫 Contribuindo para <Api_Rest_Phalcon>
