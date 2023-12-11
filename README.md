@@ -1,7 +1,7 @@
 # Api-Rest-Phalcon
 
-![[Pasted image 20231211074620.png]]
 
+<img src="Pasted image 20231211074620.png" alt="exemplo imagem">
 
 
 > um api rest em phalcon.
@@ -117,7 +117,10 @@ https://phalcon.test/product/update/id
   "title":"produto teste"  
  }
 ```
-![[swagger-documetation.png]]
+
+
+<img src="swagger-documetation.png" alt="exemplo imagem">
+
 
 
 ## 📫 Contribuindo para <Api_Rest_Phalcon>
